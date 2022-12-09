@@ -8,7 +8,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-## REST client
+## REST client
 * Open [ReportQueryAPI.postman_collection.json](ReportQueryAPI.postman_collection.json) in Postman
 * Test
 
