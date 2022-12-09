@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "8aa54421-47b6-4fc2-9c02-4f7ab829fdb5",
+		"name": "ReportQuery API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8116712"
+	},
+	"item": [
+		{
+			"name": "All Queries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52773/reportquery/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"reportquery",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52773/reportquery/query/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"reportquery",
+						"query",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Output Xls",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52773/reportquery/query/2/toxls?arg1=M",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"reportquery",
+						"query",
+						"2",
+						"toxls"
+					],
+					"query": [
+						{
+							"key": "arg1",
+							"value": "M"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
