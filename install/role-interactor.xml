@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RolesExport>
+  <Roles>
+    <Name>InteractorRole</Name>
+    <Resources>
+      <Resource>
+        <Name>InteractorResource</Name>
+        <Permission>7</Permission>
+      </Resource>
+    </Resources>
+    <Version>1</Version>
+  </Roles>
+</RolesExport>

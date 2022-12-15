@@ -7,7 +7,10 @@
     set callin=##class(Security.Services).%OpenId("%service_callin")
     set callin.Enabled=1
     do callin.%Save()
+    do ##class(Security.Resources).Import("/opt/irisapp/install/resource-interactor.xml")
+    do ##class(Security.Roles).Import("/opt/irisapp/install/role-interactor.xml")
     do ##class(Security.Applications).Import("/opt/irisapp/install/webapp-reportquery.xml")
+    do ##class(Security.Applications).Import("/opt/irisapp/install/pra-interactor.xml")
     
     zn "USER"
     // load src

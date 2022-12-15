@@ -3,6 +3,22 @@ Import ReportQuery.domain.model
 Class ReportQuery.test.Util
 {
 
+ClassMethod TestInteractor()
+{
+    set service = ##class(ReportQuery.domain.ports.Service).%New()
+    set queryDef = ##class(QueryDef).%New()
+    set queryDef.Name = "List of persons by name"
+    set queryDef.SqlQuery = "SELECT * FROM ReportQuery_test_data.Person"
+    set id = service.Create(queryDef)
+}
+
+ClassMethod TestNoInteractor()
+{
+    set queryDef = ##class(ReportQuery.domain.model.QueryDef).%OpenId(1)
+    set queryDef.Description = "mod-no-interactor"
+    write queryDef.%Save()
+}
+
 /// Create some queries
 ClassMethod TestCreateQueries()
 {

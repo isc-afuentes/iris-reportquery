@@ -6,6 +6,9 @@ Class ReportQuery.domain.ports.Service Extends %RegisteredObject
 Method Create(q As QueryDef) As %String
 {
     try {
+        new $Roles
+        do $system.Security.AddRoles("InteractorPRA")
+
         $$$ThrowOnError(q.%Save(1))
         return q.%Id()
 
@@ -17,6 +20,9 @@ Method Create(q As QueryDef) As %String
 Method Update(q As QueryDef) As %String
 {
     try {
+        new $Roles
+        do $system.Security.AddRoles("InteractorPRA")
+
         $$$ThrowOnError(q.%Save())
         return q.%Id()
 
@@ -28,6 +34,9 @@ Method Update(q As QueryDef) As %String
 Method GetById(id As %String) As QueryDef
 {
     try {
+        new $Roles
+        do $system.Security.AddRoles("InteractorPRA")
+
         set q = ##class(QueryDef).%OpenId(id)
         if '$isobject(q) throw ##class(%Exception.General).%New("QueryDef does not exist","","",id)
         return q
