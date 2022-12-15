@@ -1,6 +1,7 @@
 version: '3.7'
 
 services:
+  
   iris:
     init: true
     build:
@@ -12,7 +13,6 @@ services:
     - "1972:1972"
     volumes:
     - .:/app
-
 
   jupyter:
     container_name: jupyter
