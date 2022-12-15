@@ -2,5 +2,11 @@
 obj
 bin
 *.bak
+
+# cli: ignore python venv
 env
-irisnative
+dbapi
+
+# jupyter: ignore all but ipynb
+jupyter/notebooks/*
+!jupyter/notebooks/*.ipynb

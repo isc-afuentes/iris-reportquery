@@ -15,16 +15,18 @@ docker-compose up -d
 
 ## Command Line (CLI)
 
+Download [InterSystems IRIS DBAPI driver](https://intersystems-community.github.io/iris-driver-distribution/) and to `cli/dbapi` folder.
+
 Create a virtual env:
 ```
-cd python
+cd cli
 python3 -m venv env
 source env/bin/activate
 ```
 
 Install dependencies:
 ```
-pip3 install irisnative/intersystems_irispython-3.2.0-py3-none-any.whl
+pip3 install dbapi/intersystems_irispython-3.2.0-py3-none-any.whl
 pip3 install configparser
 ```
 
@@ -43,3 +45,7 @@ Run a query:
 python query-cli.py --run -q 2 --args M
 ```
 
+## Jupyter Notebooks
+Open http://localhost:8888 
+
+Open ReportQuery notebook
