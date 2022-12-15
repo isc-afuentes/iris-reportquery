@@ -7,7 +7,7 @@
     <CSPZENEnabled>true</CSPZENEnabled>
     <CSRFToken>false</CSRFToken>
     <DeepSeeEnabled>false</DeepSeeEnabled>
-    <DispatchClass>ReportQuery.adapters.api.QueryEndpoint</DispatchClass>
+    <DispatchClass>ReportQuery.connectors.api.QueryEndpoint</DispatchClass>
     <Enabled>true</Enabled>
     <HyperEvent>0</HyperEvent>
     <iKnowEnabled>false</iKnowEnabled>

@@ -1,8 +1,10 @@
-Import ReportQuery.domain.model
+Import ReportQuery.model
 
-Class ReportQuery.domain.ports.Service Extends %RegisteredObject
+/// Interactor that implements use cases on the model
+Class ReportQuery.interactors.QueryI Extends %RegisteredObject
 {
 
+/// Create a query definition
 Method Create(q As QueryDef) As %String
 {
     try {
@@ -17,6 +19,7 @@ Method Create(q As QueryDef) As %String
     }
 }
 
+/// Update a query definition
 Method Update(q As QueryDef) As %String
 {
     try {
@@ -31,6 +34,7 @@ Method Update(q As QueryDef) As %String
     }
 }
 
+/// Get a query definition by id
 Method GetById(id As %String) As QueryDef
 {
     try {
@@ -45,6 +49,7 @@ Method GetById(id As %String) As QueryDef
     }
 }
 
+/// Execute a query using a $list as parameter
 Method ExecuteQueryFromList(qId As %String, argsList As %List) As %SQL.StatementResult
 {
     kill args
@@ -55,6 +60,7 @@ Method ExecuteQueryFromList(qId As %String, argsList As %List) As %SQL.Statement
     return ..ExecuteQueryFromArray(qId, .args)
 }
 
+/// Execute a query using an array as parameter
 /// e.g. set args=2, args(1)="M", args(2)="99"
 Method ExecuteQueryFromArray(qId As %String, ByRef args) As %SQL.StatementResult
 {
@@ -76,6 +82,7 @@ Method ExecuteQueryFromArray(qId As %String, ByRef args) As %SQL.StatementResult
     }
 }
 
+/// Export a resultset to a XLS file
 Method ExportToXLS(resultSet As %SQL.StatementResult, fileName As %String) [ Language = python ]
 {
     from openpyxl import Workbook
@@ -97,6 +104,7 @@ Method ExportToXLS(resultSet As %SQL.StatementResult, fileName As %String) [ Lan
     wb.save(fileName)
 }
 
+/// Class query to return all query definitions
 Query GetQueries(name As %String = "") As %SQLQuery(CONTAINID = 1, ROWSPEC = "ID:%Integer,Name:%String,Description:%String,SQLQueryText:%String") [ SqlProc ]
 {
     SELECT ID,Name,Description,SQLQuery FROM QueryDef

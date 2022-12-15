@@ -1,4 +1,5 @@
-Class ReportQuery.adapters.api.QueryEndpoint Extends %CSP.REST
+/// REST endpoint
+Class ReportQuery.connectors.api.QueryEndpoint Extends %CSP.REST
 {
 
 Parameter HandleCorsRequest As %Integer = 1;
@@ -25,7 +26,7 @@ ClassMethod GetAllQueries() As %Status
     set ret = $$$OK
     try {
         set statement = ##class(%SQL.Statement).%New()
-        set sc = statement.%PrepareClassQuery("ReportQuery.domain.ports.Service","GetQueries")
+        set sc = statement.%PrepareClassQuery("ReportQuery.interactors.QueryI","GetQueries")
         $$$ThrowOnError(sc)
         set rs = statement.%Execute("")
         
@@ -52,7 +53,7 @@ ClassMethod GetQueryById(id As %String) As %Status
 {
     set ret = $$$OK
     try {
-        set service = ##class(ReportQuery.domain.ports.Service).%New()
+        set service = ##class(ReportQuery.interactors.QueryI).%New()
         set query = service.GetById(id)
         set %response.Status = "200"
         do query.%JSONExport()
@@ -85,7 +86,7 @@ ClassMethod ExecuteOutputXls(id As %String) As %Status
         }
         
         // execute query
-        set service = ##class(ReportQuery.domain.ports.Service).%New()
+        set service = ##class(ReportQuery.interactors.QueryI).%New()
         set rs = service.ExecuteQueryFromArray(id, .args)
 
         // export to xlsx

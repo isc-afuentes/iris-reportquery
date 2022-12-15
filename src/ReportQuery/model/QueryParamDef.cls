@@ -1,4 +1,5 @@
-Class ReportQuery.domain.model.QueryParamDef Extends (%Persistent, %JSON.Adaptor)
+/// Query Parameter definition
+Class ReportQuery.model.QueryParamDef Extends (%Persistent, %JSON.Adaptor)
 {
 
 Property Name As %String;
@@ -31,11 +32,11 @@ Storage Default
 <Value>QueryDef</Value>
 </Value>
 </Data>
-<DataLocation>^ReportQuery620C.QueryParamDefD</DataLocation>
+<DataLocation>^ReportQuery1C53.QueryParamDefD</DataLocation>
 <DefaultData>QueryParamDefDefaultData</DefaultData>
-<IdLocation>^ReportQuery620C.QueryParamDefD</IdLocation>
-<IndexLocation>^ReportQuery620C.QueryParamDefI</IndexLocation>
-<StreamLocation>^ReportQuery620C.QueryParamDefS</StreamLocation>
+<IdLocation>^ReportQuery1C53.QueryParamDefD</IdLocation>
+<IndexLocation>^ReportQuery1C53.QueryParamDefI</IndexLocation>
+<StreamLocation>^ReportQuery1C53.QueryParamDefS</StreamLocation>
 <Type>%Storage.Persistent</Type>
 }
 

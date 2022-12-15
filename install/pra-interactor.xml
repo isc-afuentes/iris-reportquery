@@ -23,7 +23,7 @@
     <Recurse>true</Recurse>
     <RedirectEmptyPath>false</RedirectEmptyPath>
     <Routines>
-      <RoutinesItem>ReportQuery.domain.ports.Service:USER:1</RoutinesItem>
+      <RoutinesItem>ReportQuery.interactors.QueryI:USER:1</RoutinesItem>
     </Routines>
     <ServeFiles>1</ServeFiles>
     <ServeFilesTimeout>3600</ServeFilesTimeout>

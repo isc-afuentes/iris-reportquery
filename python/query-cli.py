@@ -51,7 +51,7 @@ def show_query_by_id(identifier):
     conn = create_connection()
     irispy = create_iris(conn)
     
-    service = irispy.classMethodObject("ReportQuery.domain.ports.Service","%New")
+    service = irispy.classMethodObject("ReportQuery.interactors.QueryI","%New")
     queryDef = service.invoke("GetById", identifier)
     jsonQueryDef = iris.IRISReference(None); 
     queryDef.invoke("%JSONExportToString", jsonQueryDef)
@@ -70,7 +70,7 @@ def show_all_queries():
     irispy = create_iris(conn)
     
     statement = irispy.classMethodObject("%SQL.Statement","%New")
-    status = statement.invoke("%PrepareClassQuery", "ReportQuery.domain.ports.Service", "GetQueries")
+    status = statement.invoke("%PrepareClassQuery", "ReportQuery.interactors.QueryI", "GetQueries")
     rs = statement.invoke("%Execute", "")
     
     while rs.invoke("%Next"):
@@ -97,7 +97,7 @@ def run_query(id, args):
     conn = create_connection()
     irispy = create_iris(conn)
     
-    service = irispy.classMethodObject("ReportQuery.domain.ports.Service","%New")
+    service = irispy.classMethodObject("ReportQuery.interactors.QueryI","%New")
     rs = service.invoke("ExecuteQueryFromList", id, argList)
     rs.invokeVoid("%Display")
     

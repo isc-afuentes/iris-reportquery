@@ -7,8 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: iris:workshop
-    container_name: iris-python
-    command: --check-caps false
+    container_name: iris
     ports:
     - "52773:52773"
     - "1972:1972"

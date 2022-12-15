@@ -1,20 +1,24 @@
-Import ReportQuery.domain.model
+Import ReportQuery.model
 
-Class ReportQuery.test.Util
+/// 
+/// Simple use cases tests
+Class ReportQuery.test.Simple
 {
 
+/// Test an Interactor
 ClassMethod TestInteractor()
 {
-    set service = ##class(ReportQuery.domain.ports.Service).%New()
+    set service = ##class(ReportQuery.interactors.QueryI).%New()
     set queryDef = ##class(QueryDef).%New()
     set queryDef.Name = "List of persons by name"
     set queryDef.SqlQuery = "SELECT * FROM ReportQuery_test_data.Person"
     set id = service.Create(queryDef)
 }
 
+/// Returns an error because you cannot use %Open, %Save directly without using an Interactor
 ClassMethod TestNoInteractor()
 {
-    set queryDef = ##class(ReportQuery.domain.model.QueryDef).%OpenId(1)
+    set queryDef = ##class(ReportQuery.model.QueryDef).%OpenId(1)
     set queryDef.Description = "mod-no-interactor"
     write queryDef.%Save()
 }
@@ -23,7 +27,7 @@ ClassMethod TestNoInteractor()
 ClassMethod TestCreateQueries()
 {
     try {
-        set service = ##class(ReportQuery.domain.ports.Service).%New()
+        set service = ##class(ReportQuery.interactors.QueryI).%New()
 
         set queryDef = ##class(QueryDef).%New()
         set queryDef.Name = "List of persons by name"
@@ -52,7 +56,7 @@ ClassMethod TestCreateQueries()
 ClassMethod TestQuerySimple()
 {
     try {
-        set service = ##class(ReportQuery.domain.ports.Service).%New()
+        set service = ##class(ReportQuery.interactors.QueryI).%New()
 
         set queryDef = ##class(QueryDef).%New()
         set queryDef.Name = "List of persons by name"
@@ -77,7 +81,7 @@ ClassMethod TestQuerySimple()
 ClassMethod TestQueryArgs()
 {
     try {
-        set service = ##class(ReportQuery.domain.ports.Service).%New()
+        set service = ##class(ReportQuery.interactors.QueryI).%New()
 
         set queryDef = ##class(QueryDef).%New()
         set queryDef.Name = "Persons starting by arg"

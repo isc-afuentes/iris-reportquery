@@ -35,11 +35,11 @@ python query-cli.py --info
 
 Display info about a given query:
 ```
-cli.py --info -q 2
+python query-cli.py --info -q 2
 ```
    
 Run a query:
 ```
-cli.py --run -q 2 -args M
+python query-cli.py --run -q 2 --args M
 ```
 
